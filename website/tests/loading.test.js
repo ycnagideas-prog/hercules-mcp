@@ -12,7 +12,7 @@ const read = path => readFile(new URL(path, import.meta.url), "utf8");
 test("sharing metadata is static, consistent, absolute and backed by a small JPEG", async () => {
   const html = await read("../index.html");
   const tags = new Map([...html.matchAll(/<meta\s+(?:name|property)="([^"]+)"\s+content="([^"]+)"\s*\/?>/g)].map(m => [m[1], m[2]]));
-  const canonical = "https://0xmihirk.github.io/hercules-mcp/";
+  const canonical = "https://ycnagideas-prog.github.io/hercules-mcp/";
   assert.equal(tags.get("og:url"), canonical);
   assert.ok(html.includes(`<link rel="canonical" href="${canonical}"`));
   assert.equal(tags.get("og:site_name"), "Hercules MCP");
